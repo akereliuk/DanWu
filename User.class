@@ -1,0 +1,63 @@
+<?
+
+class User{
+	private $intUserID;
+	private $strUserName;
+	private $strPassword;
+	private $dtmDateCreated;
+	
+	public function __construct($strUserName){
+		$this->strUserName = $strUserName;
+	}
+	
+	public function getUserName(){
+		return $this->strUserName;
+	}
+	
+	public function setPassword($strPassword){
+		$this->strPassword = $strPassword; // idk how encrypting passwords works though
+	}
+	
+	public function setDateCreated($dtmDateCreated){
+		$this->dtmDateCreated = $dtmDateCreated;
+	}
+	
+	public function getDateCreated(){
+		return $this->dtmDateCreated;
+	}
+	
+	public function load(){
+		$objDB = new mysqli("localhost", "root", "");
+		$objDB->connect or die; // or however this is supposed to look
+		// note its better to make Database.class with a connect, query, etc function because we dont have to copy paste this connect or die shit every time
+		$strSQL = "INSERT INTO tblUser
+							SET strUserName = '" . $this->strUserName . "',
+							strPassword = '" . $this->strPassword . "',
+							dtmDateCreated = '" . $this->dtmDateCreated . "'";
+		$objDB->query($strSQL);
+			// find out if query returns 0 or 1, so we can be like return $objDB->query($strSQL) ? $objDB->query($strSQL) : 0; or something
+	}
+	
+	class UserBase extends User{
+	
+		function getBooksOwned(){
+			// can be like $objUser->getBooksOwned() and it returns an array for us to work with
+		}
+		
+		function exists(){
+			$objDB = new mysqli("localhost", "root", "");
+			$objDB->connect or die; // or however this is supposed to look
+			$strSQL = "SELECT strUserName
+								FROM tblUser
+								WHERE strUserName = '" . $this->strUserName . "'";
+			if(isset($objDB->query($strSQL))){
+				return 1;
+			}
+			else{
+				return 0;
+			}
+		}
+	}
+}
+
+?>

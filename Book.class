@@ -1,0 +1,46 @@
+<?
+
+class Book{
+	private $intBookID;
+	private $strBookName;
+	private $strAuthor;
+	private $strPublisher;
+	private $dtmDatePublished;
+	private $dtmDateAdded;
+	private $intprice;
+	
+	public function __construct($intBookID, $strBookName, $strAuthor, $strPublisher){
+		$this->intBookID = $intBookID;
+		$this->strBookName = $strBookName;
+		$this->strAuthor = $strAuthor;
+		$this->strPublisher = $strPublisher;
+		$this->dtmDatePublished = $dtmDatePublished;
+		$this->dtmDateAdded = $dtmDateAdded;
+	}
+	
+	public function getBookID(){
+		return $this->intBookID;
+	}
+	
+	public function getBookName(){
+		return $this->strBookName;
+	}
+	
+	public function getAuthor(){
+		return $this->strAuthor;
+	}
+	
+	public function getPublisher(){
+		return $this->strPublisher;
+	}
+	
+	public function getDatePublished(){
+		return $this->dtmDatePublished;
+	}
+	
+	public function getDateAdded(){
+		return $this->dtmDateAdded;
+	}
+}
+
+?>
