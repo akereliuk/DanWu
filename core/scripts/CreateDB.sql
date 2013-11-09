@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS tblUser (
 	strFirstName varchar(32) NOT NULL, 
 	strLastName varchar(32) NOT NULL,  
 	strEmail varchar(32) NOT NULL, 
+	blnAdmin tinyint(6) NOT NULL,
 	PRIMARY KEY (intUserID))
 	ENGINE=InnoDB
 	AUTO_INCREMENT=2
