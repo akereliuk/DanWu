@@ -39,9 +39,25 @@ function getEntryDetails($intEntryID){
 }
 
 function searchEntries($strSearchField, $strSearchHeader){
-	 $arrReturn = array();
-	 $strSQL = "SELECT intEntryID
+	$arrHeaders = array("Book Name" => "strBookName",
+							 "Author Name" => "strAuthor",
+							 "Publisher" => "strPublisher",
+							 "Username" => "strUsername");
+							 
+	$arrReturn = array();
+	$strSQL = "SELECT intEntryID, strUsername, strBookName, strEmail, dblPrice, dtmDate
 							FROM tblEntry
-								WHERE 1";
-	
+								INNER JOIN tblUser
+									USING (intUserID)
+								WHERE " . $arrHeaders[$strSearchHeader] . " LIKE '%" . $strSearchField . "%'";
+	$rsResult = mysql_query($strSQL) or die($strSQL."<br/><br/>".mysql_error());
+	while($row = mysql_fetch_array($rsResult, MYSQL_ASSOC)){
+		$arrReturn[$row['intEntryID']]['Username:'] = $row['strUsername'];
+		$arrReturn[$row['intEntryID']]['Book Name:'] = $row['strBookName'];
+		$arrReturn[$row['intEntryID']]['Price:'] = $row['dblPrice'];
+		$arrReturn[$row['intEntryID']]['Email:'] = $row['strEmail'];
+		$arrReturn[$row['intEntryID']]['Date:'] = $row['dtmDate'];
+	}
+	return $arrReturn;
 }
+?>

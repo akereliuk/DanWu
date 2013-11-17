@@ -3,7 +3,7 @@
 	<div class="navigation">
 		<ul class="infoUL">
 			<li><a href="main.php">Home</a></li>
-			<li><a href="register.php">Register</a></li>
+			<?if(logged_in() === false){?><li><a href="register.php">Register</a></li><?}?>
 			<li><a href="sellbooks.php">Sell Books</a></li>
 			<li><a href="viewbooks.php">View Books</a></li>
 		</ul>
