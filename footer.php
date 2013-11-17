@@ -1,5 +1,3 @@
-</div>
-<?php include "widgets.php" ?>
-
+		</div>
 	</body>
 </html>

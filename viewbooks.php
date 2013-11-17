@@ -41,6 +41,19 @@ function toJavaScript(){
 
 $result = mysql_query("SELECT intEntryID, intUserID, strBookName, dblPrice, dtmDate FROM tblEntry");
 
+?>
+<form method='post' action='searchentries.php'>
+<input type='text' name='strSearchField' id='searchField'></input>
+<select name='strSearchHeader' id='searchDropDown'>
+	<option>Book Name</option>
+	<option>Author Name</option>
+	<option>Publisher</option>
+	<option>Username</option>
+</select>
+<input type='submit' id='searchButton' value='Search Entries'></input>
+</form> 
+<?
+
 echo "<table id='entryTable' border='1'>
 <thead>
 <tr id='headingRow'>

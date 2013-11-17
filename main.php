@@ -1,6 +1,3 @@
-<?php include "header.php" ?>
-<? if(isset($_GET['logout'])){
-			logout();
-	} ?>
-	
+<?php include "header.php"; ?>
+	Welcome to Dan Wu's used book emporium, where you can buy used books and Dan Wu.
 <?php include "footer.php"; ?>

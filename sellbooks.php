@@ -49,22 +49,21 @@ if ($set == 'set'){
 
 
 <? if(logged_in() === true){ ?>
-<div class="content">
-	<form action="" method="post">
-	<ul>
-	<li>Book Name:</li>
-		<li><input type="text" id="booknameTextField" name="strBookName"></li>
-		<li>Author Name:</li>
-		<li><input type="text" id="authorTextField" name="strAuthor"></li>
-		<li>Publisher</li>
-		<li><input type="text" id="publisherTextField" name="strPublisher"></li>
-		<li>Price</li>
-		<li><input type="text" id="priceTextField" name="dblPrice"></li>
-		<input type="hidden" name="set" value="set">
-		<li><input type="submit" value="Submit"></li>
-	</ul>
-	</form>
-</div>
+<form action="" method="post">
+<ul>
+<h2>Sell Books</h2>
+<li>Book Name:</li>
+	<li><input type="text" id="booknameTextField" name="strBookName"></li>
+	<li>Author Name:</li>
+	<li><input type="text" id="authorTextField" name="strAuthor"></li>
+	<li>Publisher</li>
+	<li><input type="text" id="publisherTextField" name="strPublisher"></li>
+	<li>Price</li>
+	<li><input type="text" id="priceTextField" name="dblPrice"></li>
+	<input type="hidden" name="set" value="set">
+	<li><input type="submit" value="Submit"></li>
+</ul>
+</form>
 <? }
 else{ ?>
 <div class="content">

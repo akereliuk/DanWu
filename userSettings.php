@@ -151,28 +151,26 @@ else {
 		else{
  
 ?>
-
-<div class="content">
-	<form action="" method="post">
-	<ul>
-		<li>Change First Name:</li>
-		<li><input type="text" id="firstnameTextField" name="strFirstName" value="<?=getFirstnameFromUserID($_SESSION['intUserID']) ?>"></li>
-		<li>Change Last Name:</li>
-		<li><input type="text" id="lastnameTextField" name="strLastName" value="<?=getLastnameFromUserID($_SESSION['intUserID']) ?>"></li>
-		<li>Change Email:</li>
-		<li><input type="text" id="emailTextField" name="strEmail" value="<?=getEmailFromUserID($_SESSION['intUserID']) ?>"></li>
-		<li>Change Username:</li>
-		<li><input type="text" id="usernameTextField" name="strUsername" value="<?=getUsernameFromUserID($_SESSION['intUserID']) ?>"></li>
-		<li>Change Password:</li>
-		<li><input type="password" name="strPassword"></li>
-		<li>Confirm New Password:</li>
-		<li><input type="password" name="strRepeatPassword"></li>
-		<li></li>
-		<input type="hidden" name="set" value="set">
-		<li><input type="submit" value="Save"></li>
-	</ul>
-	</form>
-</div>
+<form action="" method="post">
+<ul>
+	<h2>User Settings</h2>
+	<li>Change First Name:</li>
+	<li><input type="text" id="firstnameTextField" name="strFirstName" value="<?=getFirstnameFromUserID($_SESSION['intUserID']) ?>"></li>
+	<li>Change Last Name:</li>
+	<li><input type="text" id="lastnameTextField" name="strLastName" value="<?=getLastnameFromUserID($_SESSION['intUserID']) ?>"></li>
+	<li>Change Email:</li>
+	<li><input type="text" id="emailTextField" name="strEmail" value="<?=getEmailFromUserID($_SESSION['intUserID']) ?>"></li>
+	<li>Change Username:</li>
+	<li><input type="text" id="usernameTextField" name="strUsername" value="<?=getUsernameFromUserID($_SESSION['intUserID']) ?>"></li>
+	<li>Change Password:</li>
+	<li><input type="password" name="strPassword"></li>
+	<li>Confirm New Password:</li>
+	<li><input type="password" name="strRepeatPassword"></li>
+	<li></li>
+	<input type="hidden" name="set" value="set">
+	<li><input type="submit" value="Save"></li>
+</ul>
+</form>
 <?
 }
 }

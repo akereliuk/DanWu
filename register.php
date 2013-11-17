@@ -61,27 +61,26 @@ if ($set == 'set'){
 	else{
 ?>
 
-<div class="content">
-	<form action="" method="post">
-	<ul>
-		<li>First Name:</li>
-		<li><input type="text" id="firstnameTextField" name="strFirstName"></li>
-		<li>Last Name:</li>
-		<li><input type="text" id="lastnameTextField" name="strLastName"></li>
-		<li>Email:</li>
-		<li><input type="text" id="emailTextField" name="strEmail"></li>
-		<li>Username:</li>
-		<li><input type="text" id="usernameTextField" name="strUsername"></li>
-		<li>Password:</li>
-		<li><input type="password" name="strPassword"></li>
-		<li>Confirm Password:</li>
-		<li><input type="password" name="strRepeatPassword"></li>
-		<li></li>
-		<input type="hidden" name="set" value="set">
-		<li><input type="submit" value="Submit"></li>
-	</ul>
-	</form>
-</div>
+<form action="" method="post">
+<ul>
+	<h2>Register</h2>
+	<li>First Name:</li>
+	<li><input type="text" id="firstnameTextField" name="strFirstName"></li>
+	<li>Last Name:</li>
+	<li><input type="text" id="lastnameTextField" name="strLastName"></li>
+	<li>Email:</li>
+	<li><input type="text" id="emailTextField" name="strEmail"></li>
+	<li>Username:</li>
+	<li><input type="text" id="usernameTextField" name="strUsername"></li>
+	<li>Password:</li>
+	<li><input type="password" name="strPassword"></li>
+	<li>Confirm Password:</li>
+	<li><input type="password" name="strRepeatPassword"></li>
+	<li></li>
+	<input type="hidden" name="set" value="set">
+	<li><input type="submit" value="Submit"></li>
+</ul>
+</form>
 <?
 	}
 }

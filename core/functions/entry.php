@@ -37,3 +37,11 @@ function getEntryDetails($intEntryID){
 	}
 	return $arrReturn;
 }
+
+function searchEntries($strSearchField, $strSearchHeader){
+	 $arrReturn = array();
+	 $strSQL = "SELECT intEntryID
+							FROM tblEntry
+								WHERE 1";
+	
+}

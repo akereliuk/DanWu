@@ -1,9 +1,13 @@
 <body>
-<div id="mainTable" class="bigTable">
+<div id="mainTable">
 	<div class="navigation">
-		<a href="main.php">Home</a>
-		<a href="sellbooks.php">Sell Books</a>
-		<a href="viewbooks.php">View Books</a>
-		
+		<ul class="infoUL">
+			<li><a href="main.php">Home</a></li>
+			<li><a href="register.php">Register</a></li>
+			<li><a href="sellbooks.php">Sell Books</a></li>
+			<li><a href="viewbooks.php">View Books</a></li>
+		</ul>
+		<div class="logo"><img src="logo.jpg"></div>
+		<?php include "widgets.php" ?>
 	</div>
 	
