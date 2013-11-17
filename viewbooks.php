@@ -39,7 +39,7 @@ function toJavaScript(){
 		return $strJS;
 }
 
-$result = mysql_query("SELECT intEntryID, intUserID, intBookID, dblPrice, dtmDate FROM tblEntry");
+$result = mysql_query("SELECT intEntryID, intUserID, strBookName, dblPrice, dtmDate FROM tblEntry");
 
 echo "<table id='entryTable' border='1'>
 <thead>
@@ -57,11 +57,12 @@ while($row = mysql_fetch_array($result))
 {
   echo "<tr id='entryRow" . $row['intEntryID'] . "'>";
   echo "<td>" . getUsernameFromUserID($row['intUserID']) . "</td>";
-  echo "<td>" . getBookNameFromBookID($row['intBookID']) . "</td>";
+  echo "<td>" . $row['strBookName'] . "</td>";
   echo "<td>" . $row['dblPrice'] . "</td>";
   echo "<td>" . getEmailFromUserID($row['intUserID']) . "</td>";
   echo "<td>" . $row['dtmDate'] . "</td>";
-  if(is_admin()){
+  echo "<td><a href='bookdetails.php?intEntryID=" . $row['intEntryID'] . "'>Details</a></td>";
+  if(logged_in() && is_admin()){
 	  echo "<td><input type='button' id='deleteButton" . $row['intEntryID'] . "' value='delete' onclick='deleteEntry(" . $row['intEntryID'] . ")'></td>";
   }
   echo "</tr>";

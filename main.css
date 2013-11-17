@@ -29,6 +29,36 @@ body{
 	margin:20px;
 }
 
+.pictureBox{
+	float:left;
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	margin:5px;
+}
+
+.infoBox{
+	float:left;
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	margin:5px;
+}
+
+.totalBox{
+	width:680px;
+	height:425px;
+	border:1px solid black;
+}
+
+.descriptionBox{
+	float:right;
+	margin:5px;
+	width:456px;
+	height:412px;
+	border:1px solid black;
+}
+
 .widgets{
 	background-color:#B6F0FF;
 	width:300px;
@@ -41,4 +71,8 @@ body{
 
 li{
 	list-style-type: none;
+}
+
+.infoUL{
+	padding:12px;
 }

@@ -18,3 +18,22 @@ function delete_entry($intEntryID){
 	$strSQL = "DELETE FROM tblEntry WHERE intEntryID = '" . $intEntryID . "'";
 	mysql_query($strSQL);
 }
+
+function getEntryDetails($intEntryID){
+	$arrReturn = array();
+	$strSQL = "SELECT strFirstName, strLastName, strEmail, strBookName, strAuthor, strPublisher, dtmDate, dblPrice
+						FROM tblEntry
+							INNER JOIN tblUser ON tblEntry.intUserID = tblUser.intUserID
+								WHERE intEntryID = '" . $intEntryID . "'";
+	$rsResult = mysql_query($strSQL);
+	while($row = mysql_fetch_array($rsResult)){
+		$arrReturn['strBookName'] = $row['strBookName'];
+		$arrReturn['strAuthor'] = $row['strAuthor'];
+		$arrReturn['strPublisher'] = $row['strPublisher'];
+		$arrReturn['dblPrice'] = $row['dblPrice'];
+		$arrReturn['strFirstName'] = $row['strFirstName'];
+		$arrReturn['strLastName'] = $row['strLastName'];
+		$arrReturn['strEmail'] = $row['strEmail'];
+	}
+	return $arrReturn;
+}
