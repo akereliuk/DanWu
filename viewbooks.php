@@ -54,7 +54,7 @@ $result = mysql_query("SELECT intEntryID, intUserID, strBookName, dblPrice, dtmD
 </form> 
 <?
 
-echo "<table id='entryTable' border='1'>
+$strMkTable = "<table id='entryTable' border='1'>
 <thead>
 <tr id='headingRow'>
 <th id='userCol'>User</th>
@@ -62,10 +62,11 @@ echo "<table id='entryTable' border='1'>
 <th id='priceCol'>Price</th>
 <th id='emailCol'>Email</th>
 <th id='dateCol'>Date</th>
-<th>&nbsp;</th>
-<th>&nbsp;</th>
+<th>Info</th>
+ <th>Options</th> 
 </tr>
 </thead>";
+echo $strMkTable;
 
 echo "<tbody>";
 while($row = mysql_fetch_array($result))
@@ -77,8 +78,11 @@ while($row = mysql_fetch_array($result))
   echo "<td>" . getEmailFromUserID($row['intUserID']) . "</td>";
   echo "<td>" . $row['dtmDate'] . "</td>";
   echo "<td><a href='bookdetails.php?intEntryID=" . $row['intEntryID'] . "'>Details</a></td>";
-  if(logged_in() && is_admin()){
+  if(logged_in() && (is_admin() || $row['intUserID'] == $intSessionUserID)){
 	  echo "<td><input type='button' id='deleteButton" . $row['intEntryID'] . "' value='delete' onclick='deleteEntry(" . $row['intEntryID'] . ")'></td>";
+  }
+  else{
+	echo "<td>&nbsp;</td>";
   }
   echo "</tr>";
 }

@@ -5,21 +5,31 @@
 			picture goes here
 		</div>
 		<div class="descriptionBox">
-			<form action="" method="post">
 				<? if(isset($_POST['strEmailBody'])){
-						$headers  = 'MIME-Version: 1.0' . "\r\n";
-						$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-						$to  = $arrEntryDetails['strEmail'];
-						$subject = "Dan Wu Books - Book Request";
-						$message = $_POST['strEmailBody'];
-						if(mail($to, $subject, $message, $headers)){
-							?> Successfully sent your email! <?
-						}else{
-							?> Error: mail could not be sent. <?
-						}
+						// $headers = 'From: yougotitchief@gmail.com' . "\r\n" .
+													// 'Reply-To: yougotitchief@gmail.com' . "\r\n" .
+													// 'X-Mailer: PHP/' . phpversion();
+						// $to  = $arrEntryDetails['strEmail'];
+						// $subject = "Dan Wu Books - Book Request";
+						// $message = $_POST['strEmailBody'];
+						// if(mail($to, $subject, $message, $headers)){
+							// 
+						// }else{
+							// 
+						// }
+						
+						 $to  = $arrEntryDetails['strEmail'];
+                                                $subject = "Dan Wu Books - Book Request";
+                                                $message = $_POST['strEmailBody'];
+                                                $headers = 'From: yougotitchief@gmail.com' . "\r\n" .
+													'Reply-To: yougotitchief@gmail.com' . "\r\n" .
+													'X-Mailer: PHP/' . phpversion();
+
+													mail($to, $subject, $message, $headers);
 					}
 					else{
 				?>
+			<form action="" method="post">
 				<textarea rows="21" cols="51" name="strEmailBody">Hi, <?=$arrEntryDetails['strFirstName']?>. I would like to purchase your book, <?=$arrEntryDetails['strBookName']?>. Please reply back.<?if(logged_in()){ print_r(' - ' . getFirstNameFromUserID($intSessionUserID)) ;}?></textarea>
 				<center><input type='submit' value='Send Email'></input></center>
 				<? } ?>

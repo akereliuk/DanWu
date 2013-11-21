@@ -1,6 +1,10 @@
 <?php
 include "header.php";
 echo toJavaScript();
+if(isset($_POST['intUserID']) && !empty($_POST['intUserID'])){
+	$intUserID = $_POST['intUserID'];
+	deleteUser($intUserID);
+}
 
 function toJavaScript(){
 	ob_start();
@@ -8,7 +12,7 @@ function toJavaScript(){
 	<script>
 		function deleteUser(intUserID){
 			$.ajax({
-					url: 'userSettings.php',
+					url: 'usersettings.php',
 					async: true,
 					type: 'post',
 					contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
@@ -45,7 +49,7 @@ function toJavaScript(){
 		return $strJS;
 }
 
-if (empty($_POST) === false) {
+if (isset($_POST['set'])) {
 	if(empty($_POST['strFirstName']) === false){
 		$blnFirstname = true;
 		
@@ -130,6 +134,8 @@ else {
 			<th>Email</th>
 			<th>Password</th>
 			<th>Admin</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
 			</tr>";
 
 		while($row = mysql_fetch_array($result))
@@ -173,14 +179,6 @@ else {
 </form>
 <?
 }
-}
-if(isset($_POST['intUserID']) && !empty($_POST['intUserID'])){
-	$intUserID = $_POST['intUserID'];
-	deleteUser($intUserID);
-}
-
-if(isset($_POST['strNewUsername']) && !empty($_POST['strNewUsername'])){
-	print_r($_POST['strNewUsername']);
 }
 
 include "footer.php";
