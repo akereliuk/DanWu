@@ -62,6 +62,8 @@ echo "<table id='entryTable' border='1'>
 <th id='priceCol'>Price</th>
 <th id='emailCol'>Email</th>
 <th id='dateCol'>Date</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
 </tr>
 </thead>";
 

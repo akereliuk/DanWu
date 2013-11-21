@@ -7,7 +7,7 @@
 			<li><a href="sellbooks.php">Sell Books</a></li>
 			<li><a href="viewbooks.php">View Books</a></li>
 		</ul>
-		<div class="logo"><img src="logo.jpg"></div>
+		<div class="logo"><img src="logo.png"></div>
 		<?php include "widgets.php" ?>
 	</div>
 	
