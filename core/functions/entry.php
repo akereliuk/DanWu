@@ -45,7 +45,7 @@ function searchEntries($strSearchField, $strSearchHeader){
 							 "Username" => "strUsername");
 							 
 	$arrReturn = array();
-	$strSQL = "SELECT intEntryID, strUsername, strBookName, strEmail, dblPrice, dtmDate
+	$strSQL = "SELECT intEntryID, strUsername, strBookName, strAuthor, dblPrice, dtmDate
 							FROM tblEntry
 								INNER JOIN tblUser
 									USING (intUserID)
@@ -54,8 +54,8 @@ function searchEntries($strSearchField, $strSearchHeader){
 	while($row = mysql_fetch_array($rsResult, MYSQL_ASSOC)){
 		$arrReturn[$row['intEntryID']]['Username:'] = $row['strUsername'];
 		$arrReturn[$row['intEntryID']]['Book Name:'] = $row['strBookName'];
+		$arrReturn[$row['intEntryID']]['Author:'] = $row['strAuthor'];
 		$arrReturn[$row['intEntryID']]['Price:'] = $row['dblPrice'];
-		$arrReturn[$row['intEntryID']]['Email:'] = $row['strEmail'];
 		$arrReturn[$row['intEntryID']]['Date:'] = $row['dtmDate'];
 	}
 	return $arrReturn;

@@ -56,8 +56,11 @@ echo "<tbody>";
 			echo "<td>" . $value . "</td>";
 		}
 		echo "<td><a href='bookdetails.php?intEntryID=" . $intEntryID . "'>Details</a></td>";
-		if(logged_in() && is_admin() || ($row['intUserID'] == $intSessionUserID)){
+		if(logged_in() && (is_admin() || $arrValues['Username:'] == getUsernameFromUserID($intSessionUserID))){
 			echo "<td><input type='button' id='deleteButton" . $intEntryID . "' value='delete' onclick='deleteEntry(" . $intEntryID . ")'></td>";
+		}
+		else{
+			echo "<td>&nbsp;</td>";
 		}
 		echo "</tr>";
 	}
