@@ -39,7 +39,7 @@ function toJavaScript(){
 		return $strJS;
 }
 
-$result = mysql_query("SELECT intEntryID, intUserID, strBookName, dblPrice, dtmDate FROM tblEntry");
+$result = mysql_query("SELECT intEntryID, intUserID, strBookName, strAuthor, dblPrice, dtmDate FROM tblEntry");
 
 ?>
 <form method='post' action='searchentries.php'>
@@ -59,8 +59,8 @@ $strMkTable = "<table id='entryTable' border='1'>
 <tr id='headingRow'>
 <th id='userCol'>User</th>
 <th id='bookCol'>Book</th>
+<th id='authorCol'>Author</th>
 <th id='priceCol'>Price</th>
-<th id='emailCol'>Email</th>
 <th id='dateCol'>Date</th>
 <th>Info</th>
  <th>Options</th> 
@@ -74,8 +74,8 @@ while($row = mysql_fetch_array($result))
   echo "<tr id='entryRow" . $row['intEntryID'] . "'>";
   echo "<td>" . getUsernameFromUserID($row['intUserID']) . "</td>";
   echo "<td>" . $row['strBookName'] . "</td>";
+  echo "<td>" . $row['strAuthor'] . "</td>";
   echo "<td>" . $row['dblPrice'] . "</td>";
-  echo "<td>" . getEmailFromUserID($row['intUserID']) . "</td>";
   echo "<td>" . $row['dtmDate'] . "</td>";
   echo "<td><a href='bookdetails.php?intEntryID=" . $row['intEntryID'] . "'>Details</a></td>";
   if(logged_in() && (is_admin() || $row['intUserID'] == $intSessionUserID)){

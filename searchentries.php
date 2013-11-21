@@ -41,9 +41,11 @@ echo "<table id='entryTable' border='1'>
 <tr id='headingRow'>
 <th id='userCol'>User</th>
 <th id='bookCol'>Book</th>
+<th id='authorCol'>Author</th>
 <th id='priceCol'>Price</th>
-<th id='emailCol'>Email</th>
 <th id='dateCol'>Date</th>
+<th>Info</th>
+ <th>Options</th> 
 </tr>
 </thead>";
 
@@ -54,8 +56,8 @@ echo "<tbody>";
 			echo "<td>" . $value . "</td>";
 		}
 		echo "<td><a href='bookdetails.php?intEntryID=" . $intEntryID . "'>Details</a></td>";
-		if(logged_in() && is_admin()){
-			echo "<td><input type='button' id='deleteButton" . $row['intEntryID'] . "' value='delete' onclick='deleteEntry(" . $row['intEntryID'] . ")'></td>";
+		if(logged_in() && is_admin() || ($row['intUserID'] == $intSessionUserID)){
+			echo "<td><input type='button' id='deleteButton" . $intEntryID . "' value='delete' onclick='deleteEntry(" . $intEntryID . ")'></td>";
 		}
 		echo "</tr>";
 	}
